@@ -1,6 +1,8 @@
 import { configure } from '@storybook/vue';
 
 import Vue from 'vue';
+import { configureActions } from '@storybook/addon-actions';
+
 import Alert from "../src/components/Alert";
 
 
@@ -13,3 +15,9 @@ function loadStories() {
 }
 
 configure(loadStories, module);
+
+configureActions({
+  depth: 100,
+  // Limit the number of items logged into the actions panel
+  limit: 20,
+})
