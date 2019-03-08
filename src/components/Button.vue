@@ -1,43 +1,48 @@
 <template>
-  <button
-    class="v-kuc-btn"
-    :class="{ 'submit': type === 'submit', 'normal': type === 'normal'}"
-    v-if="isVisible"
-    :disabled="isDisabled"
-    @click="handleClick"
-  >{{ text }}</button>
+    <button
+        class="v-kuc-btn"
+        :class="{
+            submit: type === 'submit',
+            normal: type === 'normal',
+        }"
+        v-if="isVisible"
+        :disabled="isDisabled"
+        @click="handleClick"
+    >
+        {{ text }}
+    </button>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 export default {
-  props: {
-    text: {
-      type: String,
-      required: true
+    props: {
+        text: {
+            type: String,
+            required: true,
+        },
+        type: {
+            type: String,
+            default: 'normal',
+        },
+        isDisabled: {
+            type: Boolean,
+            default: false,
+        },
+        isVisible: {
+            type: Boolean,
+            default: true,
+        },
+        onClick: {
+            type: Function,
+            default: () => {},
+        },
     },
-    type: {
-      type: String,
-      default: "normal"
+    methods: {
+        handleClick: function() {
+            this.onClick();
+        },
     },
-    isDisabled: {
-      type: Boolean,
-      default: false
-    },
-    isVisible: {
-      type: Boolean,
-      default: true
-    },
-    onClick: {
-      type: Function,
-      default: () => {}
-    }
-  },
-  methods: {
-    handleClick: function() {
-      this.onClick();
-    }
-  }
 };
 </script>
 
