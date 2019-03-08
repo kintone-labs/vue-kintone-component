@@ -4,10 +4,12 @@ import Vue from 'vue';
 import { configureActions } from '@storybook/addon-actions';
 
 import Alert from "../src/components/Alert";
+import Button from "../src/components/Button";
 
 
 // Register custom components.
 Vue.component('kintone-alert', Alert);
+Vue.component('kintone-button', Button);
 
 function loadStories() {
   // You can require as many stories as you need.
