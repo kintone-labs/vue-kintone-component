@@ -14,4 +14,13 @@ storiesOf('Alert')
     components: { Alert },
     template: '<Alert text="hello, world" type="success"/>'
   }))
+  .add('handle click event', () => ({
+    components: { Alert },
+    data() {
+      return {
+        onClick: () => alert('clicked')
+      }
+    },
+    template: '<Alert text="hello, world" :onClick="onClick"/>'
+  }))
   ;
