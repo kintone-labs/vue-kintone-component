@@ -19,7 +19,7 @@ export default {
       default: "error"
     },
     onClick: {
-      type: Object,
+      type: Function,
       default: () => {}
     }
   }

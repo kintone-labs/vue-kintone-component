@@ -1,6 +1,7 @@
 
 
 import { storiesOf } from '@storybook/vue';
+import { action } from '@storybook/addon-actions'
 
 import Alert from '../components/Alert';
 
@@ -18,7 +19,7 @@ storiesOf('Alert')
     components: { Alert },
     data() {
       return {
-        onClick: () => alert('clicked')
+        onClick: () => action('clicked')
       }
     },
     template: '<Alert text="hello, world" :onClick="onClick"/>'
