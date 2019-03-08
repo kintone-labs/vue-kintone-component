@@ -5,6 +5,8 @@ import { action } from '@storybook/addon-actions'
 
 import Alert from '../components/Alert';
 import Button from '../components/Button'
+import IconButton from "../components/IconButton"
+
 
 storiesOf('Alert')
   .add('story as a template', () => `<kintone-alert text="hello, world" />`)
@@ -65,4 +67,32 @@ storiesOf('Button')
     },
     template: '<Button text="hello, world" :isDisabled="isDisabled" />'
   }))
+;
+
+storiesOf('IconButton')
+  .add('story as a template', () => `<kintone-icon-button />`)
+  .add('color variation', () => ({
+    components: { IconButton },
+    template: `
+    <div>
+      <IconButton color="gray" />
+      <IconButton color="blue" />
+      <IconButton color="red" />
+      <IconButton color="green" />
+    </div>
+    `
+  }))
+// .add('type is submit', () => ({
+//     components: { Button },
+//     template: '<Button text="hello, world" type="submit" />'
+//   }))
+// .add('isDisabled is true', () => ({
+//     components: { Button },
+//     data() {
+//       return {
+//         isDisabled: true
+//       }
+//     },
+//     template: '<Button text="hello, world" :isDisabled="isDisabled" />'
+//   }))
 ;
