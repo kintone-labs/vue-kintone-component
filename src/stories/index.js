@@ -5,7 +5,8 @@ import { action } from '@storybook/addon-actions'
 
 import Alert from '../components/Alert';
 import Button from '../components/Button'
-import IconButton from "../components/IconButton"
+import IconButton from "../components/IconButton";
+import NotifyPopup from "../components/NotifyPopup";
 
 
 storiesOf('Alert')
@@ -127,17 +128,20 @@ storiesOf('IconButton')
     <IconButton :onClick="onClick" :isVisible="isVisible" />
     `
   }))
-// .add('type is submit', () => ({
-//     components: { Button },
-//     template: '<Button text="hello, world" type="submit" />'
-//   }))
-// .add('isDisabled is true', () => ({
-//     components: { Button },
-//     data() {
-//       return {
-//         isDisabled: true
-//       }
-//     },
-//     template: '<Button text="hello, world" :isDisabled="isDisabled" />'
-//   }))
+;
+
+storiesOf('NotifyPopup')
+  .add('story as a template', () => `<kintone-notify-popup text="notify!"/>`)
+  .add('as Component', () => ({
+    components: { NotifyPopup },
+    data() {
+      return {
+        onClick: () => { console.log('clicked'); action('clicked') },
+        isVisible: false
+      }
+    },
+    template: `
+    <NotifyPopup text="notify!" />
+    `
+  }))
 ;
