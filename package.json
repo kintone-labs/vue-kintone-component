@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "prettier:base": "prettier --single-quote",
+    "prettier:check": "npm run prettier:base -- --check \"./**/*.{js,vue}\"",
+    "prettier:write": "npm run prettier:base -- --write \"./**/*.{js,vue}\""
   },
   "repository": {
     "type": "git",
@@ -27,6 +30,7 @@
     "@storybook/vue": "^5.0.0",
     "babel-loader": "^8.0.5",
     "babel-preset-vue": "^2.0.2",
+    "prettier": "^1.16.4",
     "vue-loader": "^15.7.0",
     "vue-template-compiler": "^2.6.8"
   },
