@@ -1,0 +1,35 @@
+{
+  "name": "vue-kintone-component",
+  "version": "0.0.1",
+  "description": "UI Components for kintone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 9001 -c .storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kintone/vue-kintone-component.git"
+  },
+  "keywords": [
+    "vue",
+    "kintone"
+  ],
+  "author": "Cybozu.inc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kintone/vue-kintone-component/issues"
+  },
+  "homepage": "https://github.com/kintone/vue-kintone-component#readme",
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@storybook/vue": "^5.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-preset-vue": "^2.0.2",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.8"
+  },
+  "dependencies": {
+    "vue": "^2.6.8"
+  }
+}
