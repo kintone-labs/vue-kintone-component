@@ -2,7 +2,8 @@
   <div
     class="v-kuc-alert"
     :class="{ 'bg-danger': type === 'error', 'bg-success': type === 'success'}"
-    @click="onClick"
+    v-if="isVisible"
+    @click="handleClick"
   >{{ text }}</div>
 </template>
 
@@ -18,9 +19,25 @@ export default {
       type: String,
       default: "error"
     },
+    isDisabled: {
+      type: Boolean,
+      default: false
+    },
+    isVisible: {
+      type: Boolean,
+      default: true
+    },
     onClick: {
       type: Function,
       default: () => {}
+    }
+  },
+  methods: {
+    handleClick: function() {
+      if (this.isDisabled) {
+        return;
+      }
+      this.onClick();
     }
   }
 };

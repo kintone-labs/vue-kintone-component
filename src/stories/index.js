@@ -24,4 +24,23 @@ storiesOf('Alert')
     },
     template: '<Alert text="hello, world" :onClick="onClick"/>'
   }))
+  .add('disabled is false', () => ({
+    components: { Alert },
+    data() {
+      return {
+        onClick: () => { console.log('clicked'); action('clicked') },
+        isDisabled: true
+      }
+    },
+    template: '<Alert text="hello, world" :isDisabled="isDisabled"  :onClick="onClick" />'
+  }))
+  .add('visible is false', () => ({
+    components: { Alert },
+    data() {
+      return {
+        isVisible: false
+      }
+    },
+    template: '<Alert text="hello, world" :isVisible="isVisible" />'
+  }))
   ;
