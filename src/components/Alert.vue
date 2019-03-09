@@ -1,12 +1,9 @@
 <template>
     <div
-        class="v-kuc-alert"
-        :class="{
-            'bg-danger': type === 'error',
-            'bg-success': type === 'success',
-        }"
+        class="kuc-alert"
+        :class="className"
         v-if="isVisible"
-        @click="handleClick"
+        @click="click"
     >
         {{ text }}
     </div>
@@ -14,7 +11,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-export default {
+
+export default Vue.extend({
     props: {
         text: {
             type: String,
@@ -32,24 +30,30 @@ export default {
             type: Boolean,
             default: true,
         },
-        onClick: {
-            type: Function,
-            default: () => {},
+    },
+    computed: {
+        className() {
+            if (this.type === 'error') {
+                return 'bg-danger';
+            } else if (this.type === 'success') {
+                return 'bg-success';
+            }
+            return '';
         },
     },
     methods: {
-        handleClick: function() {
+        click() {
             if (this.isDisabled) {
                 return;
             }
-            this.onClick();
+            this.$emit('click');
         },
     },
-};
+});
 </script>
 
 <style scoped>
-.v-kuc-alert {
+.kuc-alert {
     position: relative;
     display: block;
     margin: 8px 0;
@@ -57,10 +61,10 @@ export default {
     background: #e74c3c;
     color: #f6f6f6;
 }
-.v-kuc-alert.bg-danger {
+.kuc-alert.bg-danger {
     background: #e74c3c;
 }
-.v-kuc-alert.bg-success {
+.kuc-alert.bg-success {
     background: #91c36c;
 }
 </style>

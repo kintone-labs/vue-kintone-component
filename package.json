@@ -4,11 +4,11 @@
   "description": "UI Components for kintone",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "prettier:base": "prettier --single-quote",
-    "prettier:check": "npm run prettier:base -- --check \"./**/*.{js,vue}\"",
-    "prettier:write": "npm run prettier:base -- --write \"./**/*.{js,vue}\""
+    "prettier:check": "npm run prettier:base -- --check \"./**/*.{js,ts,vue}\"",
+    "prettier:write": "npm run prettier:base -- --write \"./**/*.{js,ts,vue}\""
   },
   "repository": {
     "type": "git",
@@ -26,11 +26,22 @@
   "homepage": "https://github.com/kintone/vue-kintone-component#readme",
   "devDependencies": {
     "@babel/core": "^7.3.4",
-    "@storybook/addon-actions": "^5.0.0",
+    "@babel/preset-env": "^7.3.4",
+    "@storybook/addon-actions": "^5.0.1",
+    "@storybook/addon-knobs": "^5.0.1",
+    "@storybook/addons": "^5.0.1",
     "@storybook/vue": "^5.0.0",
+    "@types/jest": "^24.0.11",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.3.1",
     "babel-loader": "^8.0.5",
     "babel-preset-vue": "^2.0.2",
+    "jest": "^24.3.1",
     "prettier": "^1.16.4",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.3333",
+    "vue-jest": "^3.0.4",
     "vue-loader": "^15.7.0",
     "vue-template-compiler": "^2.6.8"
   },
