@@ -18,6 +18,7 @@ function loadStories() {
     // You can require as many stories as you need.
     require('../src/stories');
     require('../src/stories/alert');
+    require('../src/stories/iconbutton');
 }
 
 configure(loadStories, module);
