@@ -33,7 +33,6 @@ stories
         },
         methods: {
             click: action('click'),
-            change: action('change'),
         },
         template: `
         <Label
@@ -42,6 +41,5 @@ stories
             :isDisabled="isDisabled"
             :isVisible="isVisible"
             @click="click"
-            @change="change"
         />`,
     }));
