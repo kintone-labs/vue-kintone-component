@@ -50,11 +50,6 @@ describe('Alet', () => {
         const props = {
             text: 'Alert',
         };
-        const methods = {
-            click: function(): void {
-                console.log(1);
-            },
-        };
         const wrapper = newAlert(props);
         wrapper.trigger('click');
         expect(wrapper.emitted().click).toHaveLength(1);

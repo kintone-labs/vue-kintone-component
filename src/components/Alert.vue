@@ -3,7 +3,7 @@
         class="kuc-alert"
         :class="className"
         v-if="isVisible"
-        @click="click"
+        @click="!isDisabled && $emit('click')"
     >
         {{ text }}
     </div>
@@ -39,14 +39,6 @@ export default Vue.extend({
                 return 'bg-success';
             }
             return '';
-        },
-    },
-    methods: {
-        click() {
-            if (this.isDisabled) {
-                return;
-            }
-            this.$emit('click');
         },
     },
 });

@@ -4,7 +4,7 @@
         v-if="isVisible"
         :class="className"
         :disabled="isDisabled"
-        @click="handleClick"
+        @click="!isDisabled && $emit('click')"
     >
         {{ text }}
     </button>
@@ -37,11 +37,6 @@ export default Vue.extend({
             const valid =
                 ['submit', 'normal'].indexOf(type) >= 0;
             return valid ? type : '';
-        },
-    },
-    methods: {
-        handleClick: function() {
-            this.$emit('click');
         },
     },
 });
