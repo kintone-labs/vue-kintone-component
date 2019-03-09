@@ -22,6 +22,7 @@ describe('Alet', () => {
     test.each([
         ['error', 'kuc-alert', 'bg-danger'],
         ['success', 'kuc-alert', 'bg-success'],
+        ['invalid', 'kuc-alert', 'bg-danger'],
     ])(
         'type attribute with %s convert name classname',
         (type, expectedClass) => {
