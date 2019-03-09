@@ -1,34 +1,8 @@
 import { storiesOf } from '@storybook/vue';
 import { action } from '@storybook/addon-actions';
 
-import Button from '../components/Button';
 import IconButton from '../components/IconButton';
 import NotifyPopup from '../components/NotifyPopup';
-
-storiesOf('Button')
-    .add(
-        'story as a template',
-        () => `<kintone-button text="hello, world" />`
-    )
-    .add('type is normal', () => ({
-        components: { Button },
-        template: '<Button text="hello, world" />',
-    }))
-    .add('type is submit', () => ({
-        components: { Button },
-        template:
-            '<Button text="hello, world" type="submit" />',
-    }))
-    .add('isDisabled is true', () => ({
-        components: { Button },
-        data() {
-            return {
-                isDisabled: true,
-            };
-        },
-        template:
-            '<Button text="hello, world" :isDisabled="isDisabled" />',
-    }));
 
 storiesOf('IconButton')
     .add(
