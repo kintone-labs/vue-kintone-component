@@ -7,16 +7,13 @@
         >
             <div
                 class="kuc-notify-title"
-                @click="handleClick"
+                @click="$emit('click')"
             >
                 {{ text }}
             </div>
-            <div
-                class="kuc-close-button"
-                @click="handleClick"
-            >
+            <div class="kuc-close-button">
                 <IconButton
-                    :onClick="handleClosePopup"
+                    @click="clickClose"
                     type="close"
                     :color="styleByType.color"
                 />
@@ -36,7 +33,7 @@ export default {
         },
         type: {
             type: String,
-            default: 'normal',
+            default: 'error',
         },
         isDisabled: {
             type: Boolean,
@@ -46,16 +43,12 @@ export default {
             type: Boolean,
             default: true,
         },
-        onClick: {
-            type: Function,
-            default: () => {},
-        },
     },
     computed: {
         className() {
             const className = [
                 'kuc-notify',
-                this.isVisible === false ? '' : 'show',
+                !this.isVisible ? '' : 'show',
                 this.styleByType.bgClass,
             ];
             return className.join(' ').trim();
@@ -83,15 +76,11 @@ export default {
         },
     },
     methods: {
-        handleClick: function() {
-            this.onClick();
-        },
-        handleClosePopup() {
+        clickClose() {
             if (this.isDisabled) {
                 return false;
             }
-            this.isVisible = false;
-            return true;
+            this.$emit('click-close');
         },
     },
     components: {
@@ -134,7 +123,7 @@ export default {
     padding: 16px 56px 16px 24px;
     text-shadow: 1px -1px 0 rgba(0, 0, 0, 0.5);
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 2.5;
     color: white;
     min-width: 80px;
 }

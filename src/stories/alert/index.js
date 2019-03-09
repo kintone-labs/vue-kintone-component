@@ -11,7 +11,10 @@ import Alert from '../../components/Alert';
 const stories = storiesOf('Alert', module);
 stories.addDecorator(withKnobs);
 stories
-    .add('As a template', () => `<alert text="Alert" />`)
+    .add(
+        'As a template',
+        () => `<kintone-alert text="Alert" />`
+    )
     .add('As a component', () => ({
         components: { Alert },
         props: {
