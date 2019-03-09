@@ -25,7 +25,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import IconButton from './IconButton.vue';
-export default {
+export default Vue.extend({
     props: {
         text: {
             type: String,
@@ -86,7 +86,7 @@ export default {
     components: {
         IconButton,
     },
-};
+});
 </script>
 
 <style scoped>
