@@ -20,15 +20,15 @@ describe('Button', () => {
     });
 
     test.each([
-        ['normal', 'kuc-btn', 'normal'],
-        ['submit', 'kuc-btn', 'submit'],
-        ['dummy', 'kuc-btn', 'submit'],
+        ['normal', ['kuc-btn', 'normal']],
+        ['submit', ['kuc-btn', 'submit']],
+        ['dummy', ['kuc-btn']],
     ])(
         'type attribute with %s convert name classname',
         (type, expectedClass) => {
             const props = { text: 'Button', type } as Props;
             const wrapper = newButton(props);
-            expect(wrapper.classes()).toContain(
+            expect(wrapper.classes()).toEqual(
                 expectedClass
             );
         }

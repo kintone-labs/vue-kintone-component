@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-export default {
+export default Vue.extend({
     props: {
         text: {
             type: String,
@@ -44,7 +44,7 @@ export default {
             this.$emit('click');
         },
     },
-};
+});
 </script>
 
 <style scoped>

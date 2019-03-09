@@ -4,7 +4,7 @@
         :class="className"
         v-if="isVisible"
         :disabled="isDisabled"
-        @click="handleClick"
+        @click="$emit('click')"
     >
         <i :class="classType" />
     </button>
@@ -12,7 +12,34 @@
 
 <script lang="ts">
 import Vue from 'vue';
-export default {
+
+function colorToColorClass(color) {
+    const colors = ['gray', 'blue', 'red', 'green'];
+    return colors.indexOf(color) === -1 ? 'gray' : color;
+}
+
+function sizeToSizeClass(size) {
+    return size === 'small' ? 'small' : 'large';
+}
+
+function dangerClass(type, color) {
+    const isDanger = type === 'remove' && color === 'gray';
+    return isDanger ? 'hover-danger' : '';
+}
+
+function classTypeInternal(type) {
+    switch (type) {
+        case 'remove':
+            return 'fa fa-minus';
+        case 'close':
+            return 'fa fa-times';
+        case 'insert':
+        default:
+            return 'fa fa-plus';
+    }
+}
+
+export default Vue.extend({
     props: {
         type: {
             type: String,
@@ -34,56 +61,23 @@ export default {
             type: Boolean,
             default: true,
         },
-        onClick: {
-            type: Function,
-            default: () => {},
-        },
-        onChange: {
-            type: Function,
-            default: () => {},
-        },
-    },
-    methods: {
-        handleClick: function() {
-            this.onClick();
-        },
     },
     computed: {
         className() {
-            const colors = ['gray', 'blue', 'red', 'green'];
-            const color =
-                colors.indexOf(this.color) === -1
-                    ? 'gray'
-                    : this.color;
-
-            const className = [
+            return [
                 'kuc-icon-btn',
-                this.classSize,
-                this.type === 'remove' && color === 'gray'
-                    ? 'hover-danger'
-                    : '',
-                color,
-            ];
-
-            return className.join(' ').trim();
-        },
-        classSize() {
-            return this.size === 'small'
-                ? 'small'
-                : 'large';
+                sizeToSizeClass(this.size),
+                dangerClass(this.type, this.color),
+                colorToColorClass(this.color),
+            ]
+                .join(' ')
+                .trim();
         },
         classType() {
-            switch (this.type) {
-                case 'insert':
-                    return 'fa fa-plus';
-                case 'remove':
-                    return 'fa fa-minus';
-                case 'close':
-                    return 'fa fa-times';
-            }
+            return classTypeInternal(this.type);
         },
     },
-};
+});
 </script>
 
 <style scoped>
