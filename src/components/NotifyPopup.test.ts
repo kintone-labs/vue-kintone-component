@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import { mount, shallowMount } from '@vue/test-utils';
 import NotifyPopup from './NotifyPopup.vue';
 import IconButton from './IconButton.vue';
