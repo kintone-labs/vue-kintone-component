@@ -1,36 +1,30 @@
 import { mount } from '@vue/test-utils';
-import Checkbox from './Checkbox.vue';
+import Text from './Text.vue';
 
 interface Props {
-    id: string;
-    name: string;
-    checked: boolean;
-    label: string;
+    value: string;
     isDisabled?: boolean;
     isVisible?: boolean;
 }
 
-describe('Checkbox', () => {
-    function newCheckbox(propsData: Props) {
-        return mount(Checkbox, { propsData });
+describe('Text', () => {
+    function newText(propsData: Props) {
+        return mount(Text, { propsData });
     }
 
     const sampleProps = {
-        id: 'id',
-        name: 'name',
-        checked: false,
-        label: 'Checkbox',
+        value: 'Text',
     } as Props;
 
-    test('label attribute', () => {
-        const wrapper = newCheckbox(sampleProps);
-        expect(wrapper.text()).toBe('Checkbox');
+    test('text attribute', () => {
+        const wrapper = newText(sampleProps);
+        expect(wrapper.props().value).toBe('Text');
     });
 
     test.each([[true], [false]])(
         'isVisible attribute = %s constrols rendering',
         isVisible => {
-            const wrapper = newCheckbox(
+            const wrapper = newText(
                 Object.assign({}, sampleProps, {
                     isVisible,
                 })
@@ -39,19 +33,24 @@ describe('Checkbox', () => {
         }
     );
 
-    test('emit click event', () => {
-        const wrapper = newCheckbox(sampleProps);
-        wrapper.find('label').trigger('click');
+    test('emit change event', () => {
+        const wrapper = newText(sampleProps);
+        wrapper.setProps({ value: 'newText' });
+        wrapper.find('input').trigger('change');
+
         expect(wrapper.emitted().change).toHaveLength(1);
+        expect(wrapper.emitted().change[0]).toEqual([
+            'newText',
+        ]);
     });
 
-    test('not emit click event', () => {
-        const wrapper = newCheckbox(
+    test('not emit change event', () => {
+        const wrapper = newText(
             Object.assign({}, sampleProps, {
                 isDisabled: true,
             })
         );
-        wrapper.find('label').trigger('click');
+        wrapper.find('input').trigger('change');
         expect(
             wrapper.find('input').attributes().disabled
         ).toBe('disabled');
