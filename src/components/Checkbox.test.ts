@@ -22,7 +22,7 @@ describe('Checkbox', () => {
         label: 'Checkbox',
     } as Props;
 
-    test('text attribute', () => {
+    test('label attribute', () => {
         const wrapper = newCheckbox(sampleProps);
         expect(wrapper.text()).toBe('Checkbox');
     });

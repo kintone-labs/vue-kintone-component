@@ -54,6 +54,5 @@ stories
             :isDisabled="isDisabled"
             v-model="checked"
             @change="change"
-        />
-`,
+        />`,
     }));
