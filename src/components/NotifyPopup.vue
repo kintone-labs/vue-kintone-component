@@ -129,7 +129,7 @@ export default Vue.extend({
 }
 .kuc-notify .kuc-close-button {
     right: 10px;
-    top: 15px;
+    top: 19px;
     position: absolute;
     cursor: pointer;
     width: 30px;
