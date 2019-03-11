@@ -6,10 +6,7 @@ import Spinner from '../../components/Spinner';
 const stories = storiesOf('Spinner', module);
 stories.addDecorator(withKnobs);
 stories
-    .add(
-        'As a template',
-        () => `<div>Here<kintone-spinner /></div>`
-    )
+    .add('As a template', () => `<kintone-spinner />`)
     .add('As a component', () => ({
         components: { Spinner },
         props: {

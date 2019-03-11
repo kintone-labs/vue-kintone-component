@@ -18,14 +18,18 @@ Vue.component('kintone-notify-popup', NotifyPopup);
 Vue.component('kintone-label', Label);
 Vue.component('kintone-spinner', Spinner);
 
+function requireAll(requireContext) {
+    return requireContext.keys().map(requireContext);
+}
+
 function loadStories() {
-    // You can require as many stories as you need.
-    require('../src/stories/alert');
-    require('../src/stories/button');
-    require('../src/stories/iconbutton');
-    require('../src/stories/notifypopup');
-    require('../src/stories/label');
-    require('../src/stories/spinner');
+    requireAll(
+        require.context(
+            '../src/stories/',
+            true,
+            /.*\.jsx?$/
+        )
+    );
 }
 
 configure(loadStories, module);
