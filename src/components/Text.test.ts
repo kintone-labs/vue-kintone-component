@@ -33,7 +33,7 @@ describe('Text', () => {
         }
     );
 
-    test('emit click event', () => {
+    test('emit change event', () => {
         const wrapper = newText(sampleProps);
         wrapper.setProps({ value: 'newText' });
         wrapper.find('input').trigger('change');
@@ -44,7 +44,7 @@ describe('Text', () => {
         ]);
     });
 
-    test('not emit click event', () => {
+    test('not emit change event', () => {
         const wrapper = newText(
             Object.assign({}, sampleProps, {
                 isDisabled: true,
