@@ -7,6 +7,7 @@ interface Props {
     isDisabled?: boolean;
     isVisible?: boolean;
 }
+
 describe('Button', () => {
     function newButton(propsData: Props) {
         return mount(Button, { propsData });

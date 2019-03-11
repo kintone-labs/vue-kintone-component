@@ -8,7 +8,7 @@ import IconButton from '../src/components/IconButton';
 import NotifyPopup from '../src/components/NotifyPopup';
 import Label from '../src/components/Label';
 import Spinner from '../src/components/Spinner';
-
+import Checkbox from '../src/components/Checkbox';
 // TODO Register custom components as a global.
 // Register custom components.
 Vue.component('kintone-alert', Alert);
@@ -17,6 +17,7 @@ Vue.component('kintone-icon-button', IconButton);
 Vue.component('kintone-notify-popup', NotifyPopup);
 Vue.component('kintone-label', Label);
 Vue.component('kintone-spinner', Spinner);
+Vue.component('kintone-checkbox', Checkbox);
 
 function requireAll(requireContext) {
     return requireContext.keys().map(requireContext);
