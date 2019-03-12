@@ -12,6 +12,15 @@ module.exports = async ({ config, mode }) => {
             },
         ],
     });
+    config.module.rules.push({
+        test: /\.vue$/,
+        exclude: /node_modules/,
+        use: [
+            {
+                loader: 'vue-loader',
+            },
+        ],
+    });
 
     config.plugins.push(new ForkTsCheckerWebpackPlugin());
 
