@@ -78,6 +78,9 @@ export default Vue.extend({
         },
         handleChangeItem(newItem) {
             this.computedShowItem = false;
+            if (this.isDisabled) {
+                return;
+            }
             this.$emit('change', newItem);
         },
         handleDropdownClick() {
