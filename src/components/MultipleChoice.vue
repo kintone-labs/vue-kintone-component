@@ -26,7 +26,7 @@ export default Vue.extend({
         },
         isVisible: {
             type: Boolean,
-            default: false,
+            default: true,
         },
         items: {
             type: Array,
