@@ -6,7 +6,7 @@ import {
     boolean,
 } from '@storybook/addon-knobs';
 
-import MutipleChoice from '../../components/MutipleChoice';
+import MutipleChoice from '../../components/MultipleChoice';
 
 const stories = storiesOf('MutipleChoice', module);
 stories.addDecorator(withKnobs);
