@@ -1,14 +1,10 @@
 import { storiesOf } from '@storybook/vue';
 import { action } from '@storybook/addon-actions';
-import {
-    withKnobs,
-    text,
-    boolean,
-} from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 
-import MutipleChoice from '../../components/MultipleChoice';
+import MultipleChoice from '../../components/MultipleChoice';
 
-const stories = storiesOf('MutipleChoice', module);
+const stories = storiesOf('MultipleChoice', module);
 stories.addDecorator(withKnobs);
 stories.add('As a component', () => ({
     props: {
@@ -41,14 +37,14 @@ stories.add('As a component', () => ({
     },
     methods: {
         actionChange: action('change'),
-        change(newVals) {
-            this.values = newVals;
+        change(newValues) {
+            this.values = newValues;
             this.actionChange(this.values);
         },
     },
-    components: { MutipleChoice },
+    components: { MultipleChoice },
     template: `
-        <MutipleChoice
+        <MultipleChoice
             :items="items"
             :values="values"
             :isVisible="isVisible"
