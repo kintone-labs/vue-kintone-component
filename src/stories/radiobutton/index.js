@@ -2,9 +2,9 @@ import { storiesOf } from '@storybook/vue';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 
-import MultipleChoice from '../../components/MultipleChoice';
+import RadioButton from '../../components/RadioButton';
 
-const stories = storiesOf('MultipleChoice', module);
+const stories = storiesOf('RadioButton', module);
 stories.addDecorator(withKnobs);
 stories.add('As a component', () => ({
     props: {
@@ -21,32 +21,35 @@ stories.add('As a component', () => ({
                 {
                     value: '1',
                     label: 'Option1',
+                    id: 'option1',
                 },
                 {
                     value: '2',
                     label: 'Option2',
+                    id: 'option2',
                 },
                 {
                     value: '3',
                     label: 'Option3(Disabled)',
+                    id: 'option3',
                     isDisabled: true,
                 },
             ],
-            values: [],
+            value: '',
         };
     },
     methods: {
         actionChange: action('change'),
-        change(newValues) {
-            this.values = newValues;
-            this.actionChange(this.values);
+        change(newValue) {
+            this.value = newValue;
+            this.actionChange(this.value);
         },
     },
-    components: { MultipleChoice },
+    components: { RadioButton },
     template: `
-        <MultipleChoice
+        <RadioButton
             :items="items"
-            :values="values"
+            :value="value"
             :isVisible="isVisible"
             :isDisabled="isDisabled"
             @change="change" 
