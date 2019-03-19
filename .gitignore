@@ -1,4 +1,5 @@
 # Logs
+storybook-static/
 logs
 *.log
 npm-debug.log*
