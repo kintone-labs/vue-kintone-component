@@ -45,7 +45,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import ListItem from './ListItem';
+import ListItem from './ListItem.vue';
 export default Vue.extend({
     props: {
         items: {
