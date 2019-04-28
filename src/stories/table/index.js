@@ -4,7 +4,6 @@ import { action } from '@storybook/addon-actions';
 
 import kucTable from '../../components/Table';
 import TableCell from '../../components/TableCell';
-import TableRow from '../../components/TableRow';
 import KucText from '../../components/Text';
 import DropDown from '../../components/Dropdown';
 
@@ -16,7 +15,6 @@ stories.add('As a component', () => ({
     components: {
         kucTable,
         TableCell,
-        TableRow,
         KucText,
         DropDown,
     },

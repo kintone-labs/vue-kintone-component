@@ -18,7 +18,11 @@
             </div>
         </div>
         <div class="kuc-table-tbody">
-            <TableRow v-for="row in data" :key="row.id">
+            <div
+                class="kuc-table-tr"
+                v-for="row in data"
+                :key="row.id"
+            >
                 <slot :row="row"></slot>
                 <div
                     v-if="actionButtonShown"
@@ -46,14 +50,13 @@
                         />
                     </span>
                 </div>
-            </TableRow>
+            </div>
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import TableRow from './TableRow.vue';
 import IconButton from './IconButton.vue';
 export default Vue.extend({
     props: {
@@ -75,7 +78,6 @@ export default Vue.extend({
         },
     },
     components: {
-        TableRow,
         IconButton,
     },
 });
@@ -126,5 +128,9 @@ export default Vue.extend({
 
 .kuc-table-row-icon-insert {
     margin-right: 5px;
+}
+
+.kuc-table-tr {
+    display: table-row;
 }
 </style>
