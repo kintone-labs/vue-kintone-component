@@ -4,6 +4,7 @@ import {
     withKnobs,
     text,
     boolean,
+    radios,
 } from '@storybook/addon-knobs';
 
 import IconButton from '../../components/IconButton';
@@ -16,13 +17,25 @@ stories
         components: { IconButton },
         props: {
             type: {
-                default: text('type', 'insert'),
+                default: radios(
+                    'type',
+                    ['remove', 'other'],
+                    'other'
+                ),
             },
             color: {
-                default: text('color', 'gray'),
+                default: radios(
+                    'color',
+                    ['gray', 'blue', 'red', 'green'],
+                    'gray'
+                ),
             },
             size: {
-                default: text('size', 'large'),
+                default: radios(
+                    'size',
+                    ['small', 'large'],
+                    'large'
+                ),
             },
             isDisabled: {
                 default: boolean('isDisabled', false),

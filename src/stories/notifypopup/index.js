@@ -5,6 +5,7 @@ import {
     withKnobs,
     text,
     boolean,
+    radios,
 } from '@storybook/addon-knobs';
 
 const stories = storiesOf('NotifyPopup', module);
@@ -21,7 +22,11 @@ stories
                 default: text('text', 'notify'),
             },
             type: {
-                default: text('type', 'error'),
+                default: radios(
+                    'type',
+                    ['error', 'success'],
+                    'error'
+                ),
             },
             isVisible: {
                 default: boolean('isVisible', true),
