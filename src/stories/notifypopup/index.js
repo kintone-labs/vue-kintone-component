@@ -7,7 +7,6 @@ import {
     boolean,
     radios,
 } from '@storybook/addon-knobs';
-import Vue from 'vue';
 
 const stories = storiesOf('NotifyPopup', module);
 stories.addDecorator(withKnobs);
