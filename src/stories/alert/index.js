@@ -4,6 +4,7 @@ import {
     withKnobs,
     text,
     boolean,
+    radios,
 } from '@storybook/addon-knobs';
 
 import Alert from '../../components/Alert';
@@ -22,7 +23,11 @@ stories
                 default: text('text', 'Alert Message'),
             },
             type: {
-                default: text('type', ''),
+                default: radios(
+                    'type',
+                    ['success', 'other(danger)'],
+                    'success'
+                ),
             },
             isDisabled: {
                 default: boolean('isDisabled', false),

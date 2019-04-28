@@ -4,6 +4,7 @@ import {
     withKnobs,
     text,
     boolean,
+    radios,
 } from '@storybook/addon-knobs';
 
 import Button from '../../components/Button';
@@ -22,7 +23,11 @@ stories
                 default: text('text', 'Button Message'),
             },
             type: {
-                default: text('type', 'normal'),
+                default: radios(
+                    'type',
+                    ['submit', 'normal'],
+                    'normal'
+                ),
             },
             isDisabled: {
                 default: boolean('isDisabled', false),

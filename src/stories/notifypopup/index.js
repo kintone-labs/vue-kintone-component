@@ -5,7 +5,9 @@ import {
     withKnobs,
     text,
     boolean,
+    radios,
 } from '@storybook/addon-knobs';
+import Vue from 'vue';
 
 const stories = storiesOf('NotifyPopup', module);
 stories.addDecorator(withKnobs);
@@ -21,7 +23,11 @@ stories
                 default: text('text', 'notify'),
             },
             type: {
-                default: text('type', 'error'),
+                default: radios(
+                    'type',
+                    ['error', 'success'],
+                    'error'
+                ),
             },
             isVisible: {
                 default: boolean('isVisible', true),
