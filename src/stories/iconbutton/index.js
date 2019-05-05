@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/vue';
 import { action } from '@storybook/addon-actions';
 import {
     withKnobs,
-    text,
     boolean,
     radios,
 } from '@storybook/addon-knobs';
