@@ -1,5 +1,5 @@
 <template>
-    <div className="kuc-fieldgroup">
+    <div class="kuc-fieldgroup">
         <span
             role="button"
             tabindex="0"
